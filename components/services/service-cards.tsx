@@ -12,12 +12,12 @@ export function ServiceCards() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Partnership Deliveries Card */}
-        <Card className="relative overflow-hidden border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-lg group">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-transparent rounded-full -translate-y-16 translate-x-16 group-hover:from-primary/20 transition-colors" />
+        <Card className="relative overflow-hidden border-2">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-transparent rounded-full -translate-y-16 translate-x-16" />
           <CardHeader className="relative">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                   <Package className="h-6 w-6 text-primary" />
                 </div>
                 <div>
@@ -68,12 +68,12 @@ export function ServiceCards() {
         </Card>
 
         {/* Lipat Bahay Services Card */}
-        <Card className="relative overflow-hidden border-2 hover:border-accent/50 transition-all duration-300 hover:shadow-lg group">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/10 to-transparent rounded-full -translate-y-16 translate-x-16 group-hover:from-accent/20 transition-colors" />
+        <Card className="relative overflow-hidden border-2">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/10 to-transparent rounded-full -translate-y-16 translate-x-16" />
           <CardHeader className="relative">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
                   <Home className="h-6 w-6 text-accent" />
                 </div>
                 <div>

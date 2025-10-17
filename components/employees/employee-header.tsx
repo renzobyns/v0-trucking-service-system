@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Plus, Download, Filter, Calendar } from "lucide-react"
+import { ArrowLeft, Download, Filter, Calendar } from "lucide-react"
 import Link from "next/link"
+import { AddEmployeeDialog } from "./add-employee-dialog"
 
 export function EmployeeHeader() {
   return (
@@ -32,10 +33,7 @@ export function EmployeeHeader() {
               <Download className="h-4 w-4 mr-2" />
               Export
             </Button>
-            <Button size="sm">
-              <Plus className="h-4 w-4 mr-2" />
-              Add Employee
-            </Button>
+            <AddEmployeeDialog />
           </div>
         </div>
       </div>

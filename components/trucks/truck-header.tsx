@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Plus, Download, Filter } from "lucide-react"
+import { ArrowLeft, Download, Filter } from "lucide-react"
 import Link from "next/link"
+import { AddTruckDialog } from "./add-truck-dialog"
 
 export function TruckHeader() {
   return (
@@ -28,10 +29,7 @@ export function TruckHeader() {
               <Download className="h-4 w-4 mr-2" />
               Export
             </Button>
-            <Button size="sm">
-              <Plus className="h-4 w-4 mr-2" />
-              Add Truck
-            </Button>
+            <AddTruckDialog />
           </div>
         </div>
       </div>
