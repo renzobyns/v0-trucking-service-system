@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { Search, Phone, MapPin, Star, MoreHorizontal, User, Truck } from "lucide-react"
+import { Search, Phone, User, Truck, MoreHorizontal } from "lucide-react"
 
 export function EmployeeGrid() {
   const employees = [
@@ -16,12 +16,11 @@ export function EmployeeGrid() {
       email: "juan.santos@boyonas.com",
       licenseNumber: "N01-12-345678",
       licenseExpiry: "Dec 2025",
-      status: "On Duty",
+      status: "Deployed",
       currentAssignment: "DEL-001 - Flash Express",
       truck: "ABC-1234",
-      rating: 4.8,
-      totalDeliveries: 245,
-      yearsOfService: 3,
+      dateStarted: "Jan 15, 2021",
+      yearsOnTeam: 3,
       emergencyContact: "Maria Santos - +63 918 987 6543",
     },
     {
@@ -32,12 +31,11 @@ export function EmployeeGrid() {
       email: "maria.cruz@boyonas.com",
       licenseNumber: "N01-23-456789",
       licenseExpiry: "Mar 2026",
-      status: "Available",
+      status: "Idle",
       currentAssignment: "None",
       truck: "XYZ-5678",
-      rating: 4.9,
-      totalDeliveries: 189,
-      yearsOfService: 2,
+      dateStarted: "Mar 20, 2022",
+      yearsOnTeam: 2,
       emergencyContact: "Pedro Cruz - +63 919 876 5432",
     },
     {
@@ -48,12 +46,11 @@ export function EmployeeGrid() {
       email: "pedro.reyes@boyonas.com",
       licenseNumber: "N01-34-567890",
       licenseExpiry: "Aug 2025",
-      status: "On Duty",
+      status: "Deployed",
       currentAssignment: "DEL-002 - LBC",
       truck: "DEF-9012",
-      rating: 4.7,
-      totalDeliveries: 312,
-      yearsOfService: 4,
+      dateStarted: "Jun 10, 2020",
+      yearsOnTeam: 4,
       emergencyContact: "Ana Reyes - +63 920 765 4321",
     },
     {
@@ -64,12 +61,11 @@ export function EmployeeGrid() {
       email: "ana.garcia@boyonas.com",
       licenseNumber: "N01-45-678901",
       licenseExpiry: "Jan 2026",
-      status: "Off Duty",
-      currentAssignment: "Truck in maintenance",
+      status: "On Leave",
+      currentAssignment: "N/A",
       truck: "GHI-3456",
-      rating: 4.6,
-      totalDeliveries: 156,
-      yearsOfService: 2,
+      dateStarted: "Sep 05, 2022",
+      yearsOnTeam: 2,
       emergencyContact: "Luis Garcia - +63 921 654 3210",
     },
     {
@@ -80,12 +76,11 @@ export function EmployeeGrid() {
       email: "carlos.santos@boyonas.com",
       licenseNumber: "N01-56-789012",
       licenseExpiry: "Nov 2025",
-      status: "On Duty",
+      status: "Deployed",
       currentAssignment: "LB-046 - Lipat Bahay",
       truck: "JKL-7890",
-      rating: 4.9,
-      totalDeliveries: 203,
-      yearsOfService: 3,
+      dateStarted: "Feb 12, 2021",
+      yearsOnTeam: 3,
       emergencyContact: "Rosa Santos - +63 922 543 2109",
     },
     {
@@ -96,12 +91,11 @@ export function EmployeeGrid() {
       email: "pedro.cruz@boyonas.com",
       licenseNumber: "N/A",
       licenseExpiry: "N/A",
-      status: "On Duty",
+      status: "Deployed",
       currentAssignment: "DEL-001 - Flash Express",
       truck: "ABC-1234",
-      rating: 4.5,
-      totalDeliveries: 245,
-      yearsOfService: 2,
+      dateStarted: "Aug 18, 2022",
+      yearsOnTeam: 2,
       emergencyContact: "Carmen Cruz - +63 923 432 1098",
     },
     {
@@ -112,12 +106,11 @@ export function EmployeeGrid() {
       email: "luis.santos@boyonas.com",
       licenseNumber: "N/A",
       licenseExpiry: "N/A",
-      status: "On Duty",
+      status: "Deployed",
       currentAssignment: "LB-046 - Lipat Bahay",
       truck: "JKL-7890",
-      rating: 4.7,
-      totalDeliveries: 203,
-      yearsOfService: 1,
+      dateStarted: "Nov 22, 2023",
+      yearsOnTeam: 1,
       emergencyContact: "Elena Santos - +63 924 321 0987",
     },
     {
@@ -128,23 +121,24 @@ export function EmployeeGrid() {
       email: "miguel.cruz@boyonas.com",
       licenseNumber: "N/A",
       licenseExpiry: "N/A",
-      status: "On Duty",
-      currentAssignment: "LB-046 - Lipat Bahay",
-      truck: "JKL-7890",
-      rating: 4.4,
-      totalDeliveries: 203,
-      yearsOfService: 1,
+      status: "Pending Assignment",
+      currentAssignment: "Awaiting assignment",
+      truck: "N/A",
+      dateStarted: "Dec 01, 2023",
+      yearsOnTeam: 1,
       emergencyContact: "Sofia Cruz - +63 925 210 9876",
     },
   ]
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "On Duty":
+      case "Deployed":
         return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"
-      case "Available":
+      case "Idle":
         return "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300"
-      case "Off Duty":
+      case "On Leave":
+        return "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300"
+      case "Pending Assignment":
         return "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300"
       default:
         return "bg-gray-100 text-gray-800"
@@ -177,7 +171,7 @@ export function EmployeeGrid() {
     <Card>
       <CardHeader>
         <CardTitle>Employee Directory</CardTitle>
-        <CardDescription>Manage employee information, assignments, and performance</CardDescription>
+        <CardDescription>Manage employee information and assignments</CardDescription>
 
         {/* Search and Filter Controls */}
         <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -201,9 +195,10 @@ export function EmployeeGrid() {
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">All Status</SelectItem>
-              <SelectItem value="duty">On Duty</SelectItem>
-              <SelectItem value="available">Available</SelectItem>
-              <SelectItem value="off">Off Duty</SelectItem>
+              <SelectItem value="deployed">Deployed</SelectItem>
+              <SelectItem value="idle">Idle</SelectItem>
+              <SelectItem value="leave">On Leave</SelectItem>
+              <SelectItem value="pending">Pending Assignment</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -240,14 +235,8 @@ export function EmployeeGrid() {
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
-                {/* Status and Assignment */}
-                <div className="flex items-center justify-between">
-                  <Badge className={getStatusColor(employee.status)}>{employee.status}</Badge>
-                  <div className="flex items-center space-x-1">
-                    <Star className="h-4 w-4 text-yellow-500 fill-current" />
-                    <span className="text-sm font-medium">{employee.rating}</span>
-                  </div>
-                </div>
+                {/* Status */}
+                <Badge className={getStatusColor(employee.status)}>{employee.status}</Badge>
 
                 {/* Contact Info */}
                 <div className="grid grid-cols-1 gap-2 text-sm">
@@ -255,40 +244,34 @@ export function EmployeeGrid() {
                     <Phone className="h-4 w-4 text-muted-foreground" />
                     <span>{employee.phone}</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <MapPin className="h-4 w-4 text-muted-foreground" />
-                    <span className="truncate">{employee.email}</span>
-                  </div>
+                  <div className="text-muted-foreground truncate">{employee.email}</div>
                 </div>
 
                 {/* Current Assignment */}
                 <div className="text-sm">
                   <div className="font-medium">Current Assignment</div>
                   <div className="text-muted-foreground">{employee.currentAssignment}</div>
-                  {employee.truck && employee.status === "On Duty" && (
-                    <div className="text-muted-foreground">Vehicle: {employee.truck}</div>
-                  )}
                 </div>
 
                 {/* License Info (for drivers) */}
                 {employee.role === "Driver" && (
                   <div className="text-sm">
-                    <div className="font-medium">License</div>
+                    <div className="font-medium">License Info</div>
                     <div className="text-muted-foreground">
                       {employee.licenseNumber} • Expires: {employee.licenseExpiry}
                     </div>
                   </div>
                 )}
 
-                {/* Performance Stats */}
+                {/* Date Started and Years on Team */}
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div>
-                    <div className="font-medium">Total Jobs</div>
-                    <div className="text-muted-foreground">{employee.totalDeliveries}</div>
+                    <div className="font-medium">Date Started</div>
+                    <div className="text-muted-foreground">{employee.dateStarted}</div>
                   </div>
                   <div>
-                    <div className="font-medium">Experience</div>
-                    <div className="text-muted-foreground">{employee.yearsOfService} years</div>
+                    <div className="font-medium">Years on Team</div>
+                    <div className="text-muted-foreground">{employee.yearsOnTeam} years</div>
                   </div>
                 </div>
 
@@ -298,13 +281,10 @@ export function EmployeeGrid() {
                   <div>{employee.emergencyContact}</div>
                 </div>
 
-                {/* Action Buttons */}
+                {/* Action Button */}
                 <div className="flex space-x-2 pt-2">
                   <Button variant="outline" size="sm" className="flex-1 bg-transparent">
                     View Profile
-                  </Button>
-                  <Button variant="outline" size="sm" className="flex-1 bg-transparent">
-                    Assign Job
                   </Button>
                 </div>
               </CardContent>

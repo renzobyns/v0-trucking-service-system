@@ -26,17 +26,16 @@ interface DeliveryRecord {
   truck: string
   date: Date
   completedDate?: Date
-  revenue: number
   items?: string
 }
 
 const mockDeliveryData: DeliveryRecord[] = [
   {
     id: "1",
-    drNumber: "DR-2024-001",
+    drNumber: "SPX-2025-0001",
     serviceType: "partnership",
     customer: "Flash Express Hub",
-    partner: "Flash Express",
+    partner: "SPX",
     origin: "Quezon City",
     destination: "Makati City",
     status: "completed",
@@ -44,11 +43,10 @@ const mockDeliveryData: DeliveryRecord[] = [
     truck: "ABC-123",
     date: new Date(2024, 0, 15),
     completedDate: new Date(2024, 0, 15),
-    revenue: 2500,
   },
   {
     id: "2",
-    drNumber: "DR-2024-002",
+    drNumber: "LP-2025-0001",
     serviceType: "lipat-bahay",
     customer: "Maria Santos",
     origin: "Pasig City",
@@ -58,26 +56,24 @@ const mockDeliveryData: DeliveryRecord[] = [
     truck: "XYZ-456",
     date: new Date(2024, 0, 14),
     completedDate: new Date(2024, 0, 14),
-    revenue: 8500,
     items: "3-bedroom house",
   },
   {
     id: "3",
-    drNumber: "DR-2024-003",
+    drNumber: "SPX-2025-0002",
     serviceType: "partnership",
     customer: "LBC Express Center",
-    partner: "LBC Express",
+    partner: "SPX",
     origin: "Manila",
     destination: "Caloocan",
     status: "in-progress",
     driver: "Carlos Reyes",
     truck: "DEF-789",
     date: new Date(2024, 0, 16),
-    revenue: 1800,
   },
   {
     id: "4",
-    drNumber: "DR-2024-004",
+    drNumber: "LP-2025-0002",
     serviceType: "lipat-bahay",
     customer: "John Smith",
     origin: "Mandaluyong",
@@ -86,22 +82,20 @@ const mockDeliveryData: DeliveryRecord[] = [
     driver: "Miguel Torres",
     truck: "GHI-012",
     date: new Date(2024, 0, 17),
-    revenue: 12000,
     items: "Office relocation",
   },
   {
     id: "5",
-    drNumber: "DR-2024-005",
+    drNumber: "SPX-2025-0003",
     serviceType: "partnership",
     customer: "J&T Express Hub",
-    partner: "J&T Express",
+    partner: "SPX",
     origin: "Antipolo",
     destination: "Marikina",
     status: "cancelled",
     driver: "Roberto Cruz",
     truck: "JKL-345",
     date: new Date(2024, 0, 13),
-    revenue: 0,
   },
 ]
 
@@ -326,12 +320,11 @@ export function DeliveryHistory() {
               <TableRow>
                 <TableHead>DR Number</TableHead>
                 <TableHead>Service</TableHead>
-                <TableHead>Customer/Partner</TableHead>
+                <TableHead>Customer</TableHead>
                 <TableHead>Route</TableHead>
                 <TableHead>Driver & Truck</TableHead>
                 <TableHead>Status</TableHead>
                 <TableHead>Date</TableHead>
-                <TableHead>Revenue</TableHead>
                 <TableHead>Actions</TableHead>
               </TableRow>
             </TableHeader>
@@ -348,7 +341,6 @@ export function DeliveryHistory() {
                   <TableCell>
                     <div>
                       <p className="font-medium">{record.customer}</p>
-                      {record.partner && <p className="text-xs text-muted-foreground">via {record.partner}</p>}
                       {record.items && <p className="text-xs text-muted-foreground">{record.items}</p>}
                     </div>
                   </TableCell>
@@ -377,9 +369,6 @@ export function DeliveryHistory() {
                         </p>
                       )}
                     </div>
-                  </TableCell>
-                  <TableCell className="font-medium">
-                    {record.revenue > 0 ? `₱${record.revenue.toLocaleString()}` : "-"}
                   </TableCell>
                   <TableCell>
                     <Button variant="ghost" size="sm">

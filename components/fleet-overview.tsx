@@ -1,14 +1,13 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Progress } from "@/components/ui/progress"
 import { Truck, Wrench, CheckCircle } from "lucide-react"
 
 export function FleetOverview() {
   const fleetData = [
-    { plate: "ABC-1234", status: "Active", location: "Laguna", progress: 75 },
-    { plate: "XYZ-5678", status: "Available", location: "Depot", progress: 0 },
-    { plate: "DEF-9012", status: "Active", location: "Cavite", progress: 45 },
-    { plate: "GHI-3456", status: "Maintenance", location: "Workshop", progress: 0 },
-    { plate: "JKL-7890", status: "Active", location: "Manila", progress: 90 },
+    { plate: "ABC-1234", status: "Active", route: "Pasig → Laguna" },
+    { plate: "XYZ-5678", status: "Available", route: "N/A" },
+    { plate: "DEF-9012", status: "Active", route: "Manila → Cavite" },
+    { plate: "GHI-3456", status: "Maintenance", route: "N/A" },
+    { plate: "JKL-7890", status: "Active", route: "Quezon City → Laguna" },
   ]
 
   const getStatusIcon = (status: string) => {
@@ -54,16 +53,7 @@ export function FleetOverview() {
                 </div>
                 <span className={`text-sm ${getStatusColor(truck.status)}`}>{truck.status}</span>
               </div>
-              <div className="text-xs text-muted-foreground mb-2">Location: {truck.location}</div>
-              {truck.status === "Active" && (
-                <div className="space-y-1">
-                  <div className="flex justify-between text-xs">
-                    <span>Route Progress</span>
-                    <span>{truck.progress}%</span>
-                  </div>
-                  <Progress value={truck.progress} className="h-2" />
-                </div>
-              )}
+              <div className="text-xs text-muted-foreground">Route: {truck.route}</div>
             </div>
           ))}
         </div>

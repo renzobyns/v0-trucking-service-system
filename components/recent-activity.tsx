@@ -6,43 +6,35 @@ export function RecentActivity() {
   const activities = [
     {
       id: "DEL-001",
-      type: "Partnership",
       route: "Pasig → Laguna",
       truck: "ABC-1234",
       driver: "Juan Santos",
       status: "In Transit",
       time: "2 hours ago",
-      partner: "Flash Express",
     },
     {
       id: "LB-045",
-      type: "Lipat Bahay",
       route: "Makati → Quezon City",
       truck: "XYZ-5678",
       driver: "Maria Cruz",
       status: "Completed",
       time: "4 hours ago",
-      partner: "Direct Customer",
     },
     {
       id: "DEL-002",
-      type: "Partnership",
       route: "Manila → Cavite",
       truck: "DEF-9012",
       driver: "Pedro Reyes",
       status: "Loading",
       time: "1 hour ago",
-      partner: "LBC",
     },
     {
       id: "LB-046",
-      type: "Lipat Bahay",
       route: "Taguig → Antipolo",
       truck: "GHI-3456",
       driver: "Ana Garcia",
       status: "Scheduled",
       time: "30 minutes ago",
-      partner: "Direct Customer",
     },
   ]
 
@@ -84,16 +76,13 @@ export function RecentActivity() {
                 <div className="space-y-1">
                   <div className="flex items-center space-x-2">
                     <span className="font-medium">{activity.id}</span>
-                    <Badge variant="outline" className="text-xs">
-                      {activity.type}
-                    </Badge>
                   </div>
                   <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                     <MapPin className="h-3 w-3" />
                     <span>{activity.route}</span>
                   </div>
                   <div className="text-xs text-muted-foreground">
-                    {activity.truck} • {activity.driver} • {activity.partner}
+                    {activity.truck} • {activity.driver}
                   </div>
                 </div>
               </div>

@@ -1,7 +1,7 @@
 import { TruckHeader } from "@/components/trucks/truck-header"
 import { FleetStats } from "@/components/trucks/fleet-stats"
 import { TruckGrid } from "@/components/trucks/truck-grid"
-import { MaintenanceSchedule } from "@/components/trucks/maintenance-schedule"
+import { NotAvailableTrucks } from "@/components/trucks/not-available-trucks"
 
 export default function TrucksPage() {
   return (
@@ -16,7 +16,7 @@ export default function TrucksPage() {
             <TruckGrid />
           </div>
           <div>
-            <MaintenanceSchedule />
+            <NotAvailableTrucks />
           </div>
         </div>
       </main>

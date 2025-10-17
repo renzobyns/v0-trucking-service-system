@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Users, UserCheck, Clock, TrendingUp } from "lucide-react"
+import { Users, UserCheck, Clock } from "lucide-react"
 
 export function EmployeeStats() {
   const stats = [
@@ -11,30 +11,23 @@ export function EmployeeStats() {
       color: "text-chart-1",
     },
     {
-      title: "On Duty",
+      title: "On Leave",
+      value: "2",
+      subtitle: "Currently unavailable",
+      icon: Clock,
+      color: "text-yellow-600",
+    },
+    {
+      title: "Deployed Personnel",
       value: "18",
-      subtitle: "Currently working",
+      subtitle: "Currently assigned",
       icon: UserCheck,
       color: "text-green-600",
-    },
-    {
-      title: "Avg. Hours/Week",
-      value: "48",
-      subtitle: "Per employee",
-      icon: Clock,
-      color: "text-chart-3",
-    },
-    {
-      title: "Performance",
-      value: "92%",
-      subtitle: "Overall rating",
-      icon: TrendingUp,
-      color: "text-chart-4",
     },
   ]
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {stats.map((stat, index) => (
         <Card key={index} className="hover:shadow-md transition-shadow">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">

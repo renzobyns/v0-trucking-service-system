@@ -28,16 +28,8 @@ export function ServiceSelection() {
           <CardContent className="space-y-4">
             <div className="space-y-2">
               <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">Active Partners</span>
-                <span className="font-medium">Flash Express, LBC</span>
-              </div>
-              <div className="flex justify-between text-sm">
                 <span className="text-muted-foreground">Today's Routes</span>
                 <span className="font-medium">8 deliveries</span>
-              </div>
-              <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">Revenue Share</span>
-                <span className="font-medium">65%</span>
               </div>
             </div>
             <Link href="/partnership">
@@ -69,12 +61,8 @@ export function ServiceSelection() {
                 <span className="font-medium">4 scheduled</span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">Average Rate</span>
-                <span className="font-medium">₱3,500/job</span>
-              </div>
-              <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">Revenue Share</span>
-                <span className="font-medium">35%</span>
+                <span className="text-muted-foreground">Total Deliveries (Month)</span>
+                <span className="font-medium">87 deliveries</span>
               </div>
             </div>
             <Link href="/lipat-bahay">

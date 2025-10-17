@@ -1,6 +1,5 @@
 import { ServiceCards } from "@/components/services/service-cards"
 import { ServiceStats } from "@/components/services/service-stats"
-import { ServiceOverview } from "@/components/services/service-overview"
 
 export default function ServicesPage() {
   return (
@@ -15,9 +14,6 @@ export default function ServicesPage() {
 
       {/* Main Service Cards */}
       <ServiceCards />
-
-      {/* Service Overview */}
-      <ServiceOverview />
     </div>
   )
 }

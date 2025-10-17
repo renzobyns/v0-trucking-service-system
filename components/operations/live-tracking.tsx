@@ -1,71 +1,67 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { MapPin, Navigation, Clock, Phone } from "lucide-react"
+import { MapPin, Navigation, Phone } from "lucide-react"
 
 export function LiveTracking() {
   const activeDeliveries = [
     {
       id: "DEL-001",
       driver: "Juan Santos",
-      truck: "BOY-001",
-      route: "Manila → Quezon City",
-      status: "in-transit",
-      progress: 65,
-      eta: "2:30 PM",
+      truck: "ABC-1234",
+      route: "Pasig → Laguna",
+      status: "OTW to Destination",
       customer: "Flash Express Hub",
-      type: "Partnership",
+      contact: "+63 917 123 4567",
     },
     {
       id: "LB-045",
       driver: "Maria Cruz",
-      truck: "BOY-003",
-      route: "Makati → Pasig",
-      status: "loading",
-      progress: 25,
-      eta: "4:15 PM",
+      truck: "XYZ-5678",
+      route: "Makati → Quezon City",
+      status: "Loading",
       customer: "Rodriguez Family",
-      type: "Lipat Bahay",
+      contact: "+63 918 234 5678",
     },
     {
       id: "DEL-002",
       driver: "Pedro Reyes",
-      truck: "BOY-005",
-      route: "Taguig → Mandaluyong",
-      status: "delivered",
-      progress: 100,
-      eta: "Completed",
+      truck: "DEF-9012",
+      route: "Manila → Cavite",
+      status: "OTW to SOC",
       customer: "LBC Branch",
-      type: "Partnership",
+      contact: "+63 919 345 6789",
     },
     {
       id: "LB-046",
       driver: "Ana Garcia",
-      truck: "BOY-007",
-      route: "Paranaque → Las Pinas",
-      status: "in-transit",
-      progress: 80,
-      eta: "3:45 PM",
+      truck: "GHI-3456",
+      route: "Taguig → Antipolo",
+      status: "Unloading",
       customer: "Dela Cruz Family",
-      type: "Lipat Bahay",
+      contact: "+63 920 456 7890",
     },
   ]
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "in-transit":
-        return "bg-blue-100 text-blue-800"
-      case "loading":
-        return "bg-yellow-100 text-yellow-800"
-      case "delivered":
-        return "bg-green-100 text-green-800"
+      case "OTW to SOC":
+        return "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300"
+      case "Loading":
+        return "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300"
+      case "OTW to Destination":
+        return "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300"
+      case "Unloading":
+        return "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300"
+      case "Completed":
+        return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"
+      case "Incomplete":
+        return "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300"
       default:
         return "bg-gray-100 text-gray-800"
     }
-  }
-
-  const getTypeColor = (type: string) => {
-    return type === "Partnership" ? "bg-blue-100 text-blue-800" : "bg-orange-100 text-orange-800"
   }
 
   return (
@@ -86,43 +82,23 @@ export function LiveTracking() {
                     <div className="font-semibold">{delivery.id}</div>
                     <div className="text-sm text-muted-foreground">{delivery.customer}</div>
                   </div>
-                  <Badge className={getTypeColor(delivery.type)}>{delivery.type}</Badge>
                 </div>
-                <Badge className={getStatusColor(delivery.status)}>{delivery.status.replace("-", " ")}</Badge>
+                <Badge className={getStatusColor(delivery.status)}>{delivery.status}</Badge>
               </div>
 
-              <div className="grid grid-cols-2 gap-4 text-sm">
-                <div className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4 text-muted-foreground" />
-                  <span>{delivery.route}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="h-4 w-4 text-muted-foreground" />
-                  <span>ETA: {delivery.eta}</span>
-                </div>
+              <div className="flex items-center gap-2 text-sm">
+                <MapPin className="h-4 w-4 text-muted-foreground" />
+                <span>{delivery.route}</span>
               </div>
 
               <div className="flex items-center justify-between">
                 <div className="text-sm">
                   <span className="text-muted-foreground">Driver:</span> {delivery.driver} • {delivery.truck}
                 </div>
-                <Button variant="outline" size="sm">
+                <Button variant="outline" size="sm" onClick={() => alert(`Contacting: ${delivery.contact}`)}>
                   <Phone className="h-4 w-4 mr-1" />
                   Contact
                 </Button>
-              </div>
-
-              <div className="space-y-2">
-                <div className="flex justify-between text-sm">
-                  <span>Progress</span>
-                  <span>{delivery.progress}%</span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div
-                    className="bg-blue-600 h-2 rounded-full transition-all duration-300"
-                    style={{ width: `${delivery.progress}%` }}
-                  />
-                </div>
               </div>
             </div>
           ))}
